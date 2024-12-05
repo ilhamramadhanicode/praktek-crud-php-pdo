@@ -27,6 +27,7 @@ if (isset($_POST["login"])) {
 
             $_SESSION["login"] = true;
 
+            http_response_code(302);
             header("Location: index.php");
             exit();
         }
@@ -106,6 +107,11 @@ if (isset($_POST["login"])) {
         top: 147px;
         right: 38px;
         cursor: pointer;
+    }
+
+    input:focus {
+        border: 2px solid rgb(75, 75, 185);
+        transition: all 0.2s ease-in;
     }
 
     input[type=checkbox] {

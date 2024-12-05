@@ -1,10 +1,11 @@
 <?php
 session_start();
 
-if (!isset($_SESSION["login"])) {
+if (!isset($_SESSION['login'])) {
     header("Location: login.php");
     exit();
 }
+
 
 require_once "database.php";
 
@@ -14,6 +15,7 @@ $db = new Database();
 $mhs = $db->query("SELECT * FROM mahasiswa WHERE id = $id")[0];
 
 if (isset($_POST["kirim"])) {
+
     if ($db->update($_POST) > 0) {
         echo "<script> 
         alert('data berhasil diubah');
@@ -47,7 +49,7 @@ if (isset($_POST["kirim"])) {
             <h1>Tambah Data</h1>
         </div>
         <div class="mb-3">
-            <input type="hidden" name="id" value="<?= $mhs["id"] ?>" class="form-control" autocomplete="off" placeholder="Nama" required>
+            <input type="hidden" name="id" value="<?= $mhs["id"]; ?>" class="form-control" autocomplete="off" placeholder="Nama" required>
         </div>
         <div class="mb-3">
             <input type="text" name="nama" value="<?= $mhs["nama"] ?>" class="form-control" autocomplete="off" placeholder="Nama" required>
@@ -57,6 +59,9 @@ if (isset($_POST["kirim"])) {
         </div>
         <div class="mb-3">
             <button type="submit" name="kirim" class="btn btn-primary w-100">Ubah</button>
+        </div>
+        <div class="mb-3">
+            <button type="button" class="btn btn-secondary w-100"><a href="index.php" style="text-decoration: none; color: white;">Batal</a></button>
         </div>
     </form>
 

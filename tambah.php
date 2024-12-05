@@ -51,6 +51,9 @@ if (isset($_POST["kirim"])) {
         <div class="mb-3">
             <button type="submit" name="kirim" class="btn btn-primary w-100">Tambah</button>
         </div>
+        <div class="mb-3">
+            <button type="button" class="btn btn-secondary w-100"><a href="index.php" style="text-decoration: none; color: white;">Batal</a></button>
+        </div>
     </form>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
